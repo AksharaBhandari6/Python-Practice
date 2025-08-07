@@ -3,6 +3,7 @@ my dear sudoku solver :D #project2
 
 
 -----------INSPO----------------
+
 🔍 “Sudoku Solver – Because Solving by Hand is Overrated”
 
 Recently, I challenged myself with something… unnecessary, overkill, and extremely fun:
@@ -44,3 +45,17 @@ Instead, I built a system that:
 Honestly, building this was both chaotic and fulfilling.
  It reminded me that even without the latest hardware, you can still build cool, smart stuff — if you’re stubborn enough 😎
 
+
+
+-------------------my version of details------------------------
+
+things i m gonna use ---
+1.numpy -- for arrays and logics 
+
+2.opencv -- contour detection, image processing, camera control and all
+
+3.backtracking algo -- prob solvin technique used in recursion to explore all possible solutions to a problem and backtrack one path....(kinda permutation and combination stuff)
+
+4.keras+tensorflow - to create cnn model using keras api; trained on mnist dataset for recognition of hadwritten digits
+
+5.cnn concepts - models that do th actual prediction or classification
