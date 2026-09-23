@@ -1,51 +1,152 @@
-{%extends 'base.html'%} 
-{%block title%} Home Page {%endblock title%}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Akshara's Accent | Fine Dining{% endblock %}
+{% block nav_home %}active{% endblock %}
 
-{%block body%}
-<main>
-  <div
-    class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary"
-  >
-    <div class="col-md-6 p-lg-5 mx-auto my-5">
-      <h1 class="display-3 fw-bold">Akshara's Accent</h1>
-      <h3 class="fw-normal text-muted mb-3">
-        A delectable experience you would not want to miss
-      </h3>
-      <div class="d-flex gap-3 justify-content-center lead fw-normal">
-      </div>
-    </div>
-    <div class="product-device shadow-sm d-none d-md-block px-0"></div>
-    <div
-      class="product-device product-device-2 shadow-sm d-none d-md-block"
-    ></div>
-  </div>
-  <div class="container-fluid">
-    <div
-      class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-    >
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div
-        class="bg-body-tertiary shadow-sm mx-auto"
-        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-      ></div>
-    </div>
-    <div
-      class="bg-body-tertiary me-md-3 pt-3 px-0 pt-md-5 px-md-5 text-center overflow-hidden"
-    >
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div
-        class="bg-dark shadow-sm mx-auto"
-        style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-      ></div>
+{% block content %}
+
+<!-- ===== Hero ===== -->
+<section class="aa-hero">
+  <div class="container text-center">
+    <p class="subtitle mb-3">Welcome to</p>
+    <h1 class="display-font fw-bold">Akshara's <span class="text-gold">Accent</span></h1>
+    <div class="aa-divider"></div>
+    <p class="lead mx-auto" style="max-width:600px;">Where every dish tells a story — a modern accent on timeless, soulful recipes.</p>
+    <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
+      <a href="{% url 'menu' %}" class="btn btn-gold btn-lg">View Menu</a>
+      <a href="{% url 'contact' %}" class="btn btn-outline-gold btn-lg">Book a Table</a>
     </div>
   </div>
+</section>
 
-</main>
+<!-- ===== Highlights ===== -->
+<section class="aa-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="aa-eyebrow">Why Dine With Us</p>
+      <h2 class="section-title fw-bold">The Akshara Experience</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="aa-card text-center p-4">
+          <div class="aa-icon-circle"><i class="fa-solid fa-seedling"></i></div>
+          <h5 class="fw-bold">Farm-Fresh Ingredients</h5>
+          <p class="text-muted mb-0">Sourced daily from local growers to bring you the freshest flavours on every plate.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="aa-card text-center p-4">
+          <div class="aa-icon-circle"><i class="fa-solid fa-fire-burner"></i></div>
+          <h5 class="fw-bold">Master Chefs</h5>
+          <p class="text-muted mb-0">A culinary team blending traditional techniques with a contemporary accent.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="aa-card text-center p-4">
+          <div class="aa-icon-circle"><i class="fa-solid fa-champagne-glasses"></i></div>
+          <h5 class="fw-bold">Elegant Ambience</h5>
+          <p class="text-muted mb-0">A warm, refined setting perfect for date nights, celebrations and gatherings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-{%endblock%}
+<!-- ===== Featured Dishes ===== -->
+<section class="aa-section" style="background:#fff;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="aa-eyebrow">Chef's Picks</p>
+      <h2 class="section-title fw-bold">Featured Dishes</h2>
+    </div>
+    <div class="row g-4">
+      {% for dish in featured_dishes %}
+      <div class="col-md-4">
+        <div class="aa-card">
+          <img src="{{ dish.image_url }}" alt="{{ dish.name }}">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <h5 class="fw-bold mb-1">{{ dish.name }}</h5>
+              <span class="text-gold fw-bold">₹{{ dish.price }}</span>
+            </div>
+            <p class="text-muted small mb-0">{{ dish.description }}</p>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <!-- Placeholder cards shown until 'featured_dishes' is passed from the view -->
+      <div class="col-md-4">
+        <div class="aa-card">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80" alt="Paneer Tikka">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <h5 class="fw-bold mb-1">Smoked Paneer Tikka</h5>
+              <span class="text-gold fw-bold">₹320</span>
+            </div>
+            <p class="text-muted small mb-0">Char-grilled cottage cheese marinated in house spices.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="aa-card">
+          <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80" alt="Butter Chicken">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <h5 class="fw-bold mb-1">Signature Butter Chicken</h5>
+              <span class="text-gold fw-bold">₹450</span>
+            </div>
+            <p class="text-muted small mb-0">Slow simmered in a velvety tomato-butter gravy.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="aa-card">
+          <img src="https://images.unsplash.com/photo-1784755105257-ab31aeb74e8c?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dessert">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+              <h5 class="fw-bold mb-1">Saffron Rasmalai Tart</h5>
+              <span class="text-gold fw-bold">₹210</span>
+            </div>
+            <p class="text-muted small mb-0">A fusion dessert marrying French pastry with Indian flavour.</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-5">
+      <a href="{% url 'menu' %}" class="btn btn-outline-gold">Explore Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stats band ===== -->
+<section class="bg-maroon py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-6 col-md-3">
+        <div class="aa-stat"><div class="num">12+</div><div>Years of Legacy</div></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="aa-stat"><div class="num">48</div><div>Signature Dishes</div></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="aa-stat"><div class="num">25k+</div><div>Happy Guests</div></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="aa-stat"><div class="num">4.8★</div><div>Average Rating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Testimonial teaser ===== -->
+<section class="aa-section text-center" style="background:#fff;">
+  <div class="container" style="max-width:700px;">
+    <i class="fa-solid fa-quote-left fa-2x text-gold mb-3"></i>
+    <p class="lead fst-italic">"Every visit to Akshara's Accent feels like a celebration. The flavours, the service, the ambience — simply unmatched."</p>
+    <p class="fw-bold mb-0">— Featured Guest Review</p>
+    <a href="{% url 'reviews' %}" class="btn btn-gold mt-4">Read All Reviews</a>
+  </div>
+</section>
+
+{% endblock %}

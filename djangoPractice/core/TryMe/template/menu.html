@@ -1,7 +1,164 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
+{% block title %}Menu | Akshara's Accent{% endblock %}
+{% block nav_menu %}active{% endblock %}
 
-{%block title%} Home Page {%endblock title%}
+{% block content %}
 
-{%block body%}
-this is menu block
-{%endblock body%}
+<header class="aa-page-header">
+  <div class="container">
+    <p class="subtitle mb-2">Taste The Accent</p>
+    <h1 class="display-font fw-bold">Our Menu</h1>
+  </div>
+</header>
+
+<section class="aa-section">
+  <div class="container">
+
+    <!-- Tabs -->
+    <ul class="nav aa-menu-tabs justify-content-center mb-5 flex-wrap" id="menuTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="starters-tab" data-bs-toggle="tab" data-bs-target="#starters" type="button" role="tab">Starters</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="mains-tab" data-bs-toggle="tab" data-bs-target="#mains" type="button" role="tab">Main Course</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="desserts-tab" data-bs-toggle="tab" data-bs-target="#desserts" type="button" role="tab">Desserts</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="beverages-tab" data-bs-toggle="tab" data-bs-target="#beverages" type="button" role="tab">Beverages</button>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="menuTabContent">
+
+      <!-- Starters -->
+      <div class="tab-pane fade show active" id="starters" role="tabpanel">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Smoked Paneer Tikka</h5><small>Char-grilled cottage cheese, house spices</small></div>
+              <div class="dots"></div><div class="price">₹320</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Crispy Corn Chaat</h5><small>Tossed with tangy tamarind glaze</small></div>
+              <div class="dots"></div><div class="price">₹260</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Chicken Seekh Kebab</h5><small>Minced chicken, herbs, tandoor-fired</small></div>
+              <div class="dots"></div><div class="price">₹380</div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Tempura Prawns</h5><small>Crisp batter, spiced mayo dip</small></div>
+              <div class="dots"></div><div class="price">₹420</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Roasted Beet Salad</h5><small>Feta, walnuts, citrus dressing</small></div>
+              <div class="dots"></div><div class="price">₹290</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Soup of the Day</h5><small>Ask your server for today's selection</small></div>
+              <div class="dots"></div><div class="price">₹210</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Course -->
+      <div class="tab-pane fade" id="mains" role="tabpanel">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Signature Butter Chicken</h5><small>Velvety tomato-butter gravy</small></div>
+              <div class="dots"></div><div class="price">₹450</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Slow-Cooked Mutton Rogan Josh</h5><small>Kashmiri spice blend</small></div>
+              <div class="dots"></div><div class="price">₹520</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Paneer Lababdar</h5><small>Rich cashew-tomato gravy</small></div>
+              <div class="dots"></div><div class="price">₹380</div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Grilled Basil Pesto Pasta</h5><small>Fusion favourite, parmesan shavings</small></div>
+              <div class="dots"></div><div class="price">₹360</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Dal Akshara</h5><small>24-hour slow-simmered black lentils</small></div>
+              <div class="dots"></div><div class="price">₹280</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Grilled Salmon Steak</h5><small>Citrus butter glaze, seasonal veg</small></div>
+              <div class="dots"></div><div class="price">₹590</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desserts -->
+      <div class="tab-pane fade" id="desserts" role="tabpanel">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Saffron Rasmalai Tart</h5><small>French pastry meets Indian flavour</small></div>
+              <div class="dots"></div><div class="price">₹210</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Molten Chocolate Lava Cake</h5><small>Served warm with vanilla bean ice cream</small></div>
+              <div class="dots"></div><div class="price">₹230</div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Gulab Jamun Cheesecake</h5><small>Two classics, one bite</small></div>
+              <div class="dots"></div><div class="price">₹240</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Seasonal Fruit Sorbet</h5><small>Light, refreshing, dairy-free</small></div>
+              <div class="dots"></div><div class="price">₹180</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beverages -->
+      <div class="tab-pane fade" id="beverages" role="tabpanel">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Masala Chai Latte</h5><small>House-blend spices, steamed milk</small></div>
+              <div class="dots"></div><div class="price">₹140</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Fresh Watermelon Cooler</h5><small>Mint, lime, chilled</small></div>
+              <div class="dots"></div><div class="price">₹160</div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="aa-menu-item">
+              <div><h5>Virgin Mojito</h5><small>Soda, mint, fresh lime</small></div>
+              <div class="dots"></div><div class="price">₹190</div>
+            </div>
+            <div class="aa-menu-item">
+              <div><h5>Cold Brew Coffee</h5><small>Slow-steeped, 18-hour brew</small></div>
+              <div class="dots"></div><div class="price">₹170</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5">
+      <p class="text-muted">Prices are indicative and may vary. Ask your server about seasonal specials.</p>
+      <a href="{% url 'contact' %}" class="btn btn-gold">Reserve a Table</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

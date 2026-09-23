@@ -4,10 +4,10 @@ from MyApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index,name="HomePage"),
-    path('about/',views.about,name="AboutPage"),
-    path('menu/',views.menu,name="Menu"),
-    path('contact/',views.contact,name="ContactUs"),
-    path('reviews/',views.reviews,name="Reviews")
+    path('',views.index,name="index"),
+    path('about/',views.about,name="about"),
+    path('menu/',views.menu,name="menu"),
+    path('contact/',views.contact,name="contact"),
+    path('reviews/',views.reviews,name="reviews")
     
 ]

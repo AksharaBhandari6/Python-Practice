@@ -1,20 +1,110 @@
-{%extends 'base.html'%} 
-{%block title%} Contact us {%endblock title%} 
-{%block body%}
-<main class="flex-shrink-0">
+{% extends 'base.html' %}
+{% block title %}Contact | Akshara's Accent{% endblock %}
+{% block nav_contact %}active{% endblock %}
+
+{% block content %}
+
+<header class="aa-page-header">
   <div class="container">
-    <h1 class="mt-5">Contact us</h1>
-    <p class="lead">
-      Pin a footer to the bottom of the viewport in desktop browsers with this
-      custom HTML and CSS. A fixed navbar has been added with
-      <code class="small">padding-top: 60px;</code> on the
-      <code class="small">main .container</code>.
-    </p>
-    <p>
-      Back to
-      <a href="/docs/5.3/examples/sticky-footer/">the default sticky footer</a>
-      minus the navbar.
-    </p>
+    <p class="subtitle mb-2">Get In Touch</p>
+    <h1 class="display-font fw-bold">Contact &amp; Reservations</h1>
   </div>
-</main>
-{%endblock%}
+</header>
+
+<section class="aa-section">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Contact info strip -->
+      <div class="col-12">
+        <div class="row g-4 mb-4">
+          <div class="col-md-4">
+            <div class="aa-card text-center p-4">
+              <div class="aa-icon-circle"><i class="fa-solid fa-location-dot"></i></div>
+              <h5 class="fw-bold">Visit Us</h5>
+              <p class="text-muted mb-0">12 Spice Avenue, Food District, New Delhi</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="aa-card text-center p-4">
+              <div class="aa-icon-circle"><i class="fa-solid fa-phone"></i></div>
+              <h5 class="fw-bold">Call Us</h5>
+              <p class="text-muted mb-0">+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="aa-card text-center p-4">
+              <div class="aa-icon-circle"><i class="fa-solid fa-envelope"></i></div>
+              <h5 class="fw-bold">Email Us</h5>
+              <p class="text-muted mb-0">hello@aksharasaccent.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="col-lg-7">
+        <div class="aa-contact-card h-100">
+          <p class="aa-eyebrow">Reach Out</p>
+          <h2 class="section-title fw-bold mb-4">Send Us a Message</h2>
+
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+
+          <form method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" for="id_name">Full Name</label>
+                <input type="text" class="form-control" id="id_name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="id_email">Email Address</label>
+                <input type="email" class="form-control" id="id_email" name="email" placeholder="you@example.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="id_phone">Phone Number</label>
+                <input type="tel" class="form-control" id="id_phone" name="phone" placeholder="+91 00000 00000">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" for="id_guests">Number of Guests</label>
+                <input type="number" class="form-control" id="id_guests" name="guests" min="1" placeholder="2">
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="id_message">Message</label>
+                <textarea class="form-control" id="id_message" name="message" rows="5" placeholder="Tell us about your reservation or query..." required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-gold btn-lg">
+                  <i class="fa-solid fa-paper-plane me-2"></i>Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Map + hours -->
+      <div class="col-lg-5">
+        <div class="aa-map-wrap mb-4">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0!2d77.2090!3d28.6139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzUwLjAiTiA3N8KwMTInMzIuNCJF!5e0!3m2!1sen!2sin!4v1700000000000"
+                  allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Restaurant location map"></iframe>
+        </div>
+        <div class="aa-contact-card">
+          <h5 class="fw-bold mb-3"><i class="fa-solid fa-clock text-gold me-2"></i>Opening Hours</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex justify-content-between py-1 border-bottom"><span>Monday – Friday</span><span>11:00 AM – 11:00 PM</span></li>
+            <li class="d-flex justify-content-between py-1 border-bottom"><span>Saturday – Sunday</span><span>10:00 AM – 12:00 AM</span></li>
+            <li class="d-flex justify-content-between py-1"><span>Public Holidays</span><span>12:00 PM – 10:00 PM</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
